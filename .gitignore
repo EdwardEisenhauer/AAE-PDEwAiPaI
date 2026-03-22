@@ -1,0 +1,9 @@
+# LaTeX
+*.aux
+*.fdb_latexml
+*.fls
+*.log
+*.xdv
+
+# MATLAB
+*.asv
