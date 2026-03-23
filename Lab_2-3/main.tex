@@ -1,0 +1,77 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{matlab-prettifier}
+
+\author{Sergiusz Warga}
+\title{Partial Differential Equations with Applications in Physics and Industry}
+
+\begin{document}
+
+\maketitle
+
+\section{The Riemann Problem and Shock Trajectories --- Shock Waves}
+
+\subsection{Task A}
+
+For $u_t + u^2 u_x = 0$ with the given step down from 2 to 1, calculate the shock speed $s$ manually.
+
+\begin{equation}
+  u(x, 0) = 
+    \begin{cases}
+    2 \quad \text{for} \quad x \le 0, \\
+    1 \quad \text{for} \quad x > 0
+    \end{cases}
+\end{equation}
+
+We can represent our Partial Differential Equation as:
+\begin{align}
+    u_t + u^2 u_x = 0 \\
+    u_t + f(u)_x = 0 \\
+    u_t + \frac{\delta f(u)}{\delta x} = 0
+\end{align}
+
+Now we find our $f(u)$.
+
+\begin{equation}
+  \frac{\delta}{\delta x}\frac{u^3}{3} = u^2 \frac{\delta u}{\delta x}
+\end{equation}
+
+\begin{equation}
+  f(u) = \frac{u^3}{3}
+\end{equation}
+
+
+To calculate the shock speed $s$ we use Rankine-Hugoniot jump condition:
+% It comes from the conservation law.
+\begin{equation}
+  s = \frac{f(u_R) - f(u_L)}{u_R - u_L}
+\begin{equation}
+
+In our case $u_L = 2$ and $u_R = 1$.
+
+\begin{equation}
+  s = \frac{f(1) - f(2)}{1 - 2} = 2\frac{1}{3}
+\begin{equation}
+
+\subsection{Task B}
+
+Write a MATLAB script to plot the x---t plane.
+Plot the characteristic lines emerging from $x < 0$ (speed 4) and $x > 0$ (speed 1).
+Overlay a thick red line representing the analytical shock trajectory $x_s(t) = st$.
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{figures/ex_4_b_surface.png}
+  \caption{The x---t plane surface plot representing $u(x,t)$.
+  The vertical lines are the numerical artifact resulting from number of points in vectors $t$ and $v$}
+\end{figure}
+
+\begin{figure}
+  \includegraphics[width=\textwidth]{figures/ex_4_b_xt_plane.pdf}
+\end{figure}
+
+\lstinputlisting[style=Matlab-editor]{ex_4_b.m}
+
+\end{document}
