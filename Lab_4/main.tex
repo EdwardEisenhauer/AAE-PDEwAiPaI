@@ -1,0 +1,119 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{matlab-prettifier}
+
+\author{Sergiusz Warga}
+\title{Partial Differential Equations with Applications in Physics and Industry}
+
+\begin{document}
+
+\maketitle
+
+\section{The Analytical Bridge (Separation of Variables and Fourier Series)}
+
+Consider a 1D metal rod of length $L = \pi$ with thermal diffusivity $\alpha = 1$.
+The ends are kept at zero degrees (Dirichlet Boundary Conditions: $u(0,t) = u(\pi,t) = 0$).
+The initial temperature profile is a square pulse:
+
+\begin{equation}
+  u(x,0) = 
+    \begin{cases}
+      1, \quad \frac{\pi}{4} \le x \le \frac{3\pi}{4} \\
+      0, \quad \text{elsewhere}
+    \end{cases}
+\end{equation}
+
+\subsection{Task 1}
+
+We solve the heat equation
+
+\begin{equation}
+  u_t = u_{xx}, \quad 0 < x < \pi, \ t > 0
+\end{equation}
+
+with
+
+\begin{equation}
+  u(0,t) = u(\pi,t) = 0.
+\end{equation}
+
+Assume a separated form:
+
+\begin{equation}
+  u(x,t) = X(x)T(t).
+\end{equation}
+
+Substituting into the PDE gives
+
+\begin{equation}
+  X(x)T'(t) = X''(x)T(t)
+\end{equation}
+
+and after division by $X(x)T(t)$:
+
+\begin{equation}
+  \frac{T'(t)}{T(t)} = \frac{X''(x)}{X(x)} = -\lambda.
+\end{equation}
+
+So we get two ODEs:
+
+\begin{align}
+  X''(x) + \lambda X(x) &= 0, \\
+  T'(t) + \lambda T(t) &= 0.
+\end{align}
+
+From $X(0)=X(\pi)=0$, the nontrivial eigenpairs are
+
+\begin{equation}
+  \lambda_n = n^2, \quad X_n(x) = \sin(nx), \quad n=1,2,3,\dots
+\end{equation}
+
+and therefore
+
+\begin{equation}
+  T_n(t) = e^{-n^2 t}.
+\end{equation}
+
+Hence the general solution is a Fourier sine series:
+
+\begin{equation}
+  u(x,t) = \sum_{n=1}^{\infty} b_n \sin(nx)e^{-n^2 t}.
+\end{equation}
+
+Now use the initial condition $u(x,0)=f(x)$, where
+
+\begin{equation}
+  f(x)=
+  \begin{cases}
+    1, \quad \frac{\pi}{4} \le x \le \frac{3\pi}{4}, \\
+    0, \quad \text{elsewhere},
+  \end{cases}
+\end{equation}
+
+so
+
+\begin{equation}
+  b_n = \frac{2}{\pi}\int_0^\pi f(x)\sin(nx)\,dx
+      = \frac{2}{\pi}\int_{\pi/4}^{3\pi/4}\sin(nx)\,dx.
+\end{equation}
+
+After integration:
+
+\begin{equation}
+  b_n = \frac{2}{n\pi}\left(\cos\frac{n\pi}{4} - \cos\frac{3n\pi}{4}\right).
+\end{equation}
+
+Therefore, the analytical solution is
+
+\begin{equation}
+  u(x,t)=\sum_{n=1}^{\infty}
+  \frac{2}{n\pi}\left(\cos\frac{n\pi}{4} - \cos\frac{3n\pi}{4}\right)
+  \sin(nx)e^{-n^2 t}.
+\end{equation}
+
+This is the required Fourier sine series representation obtained by separation of variables.
+
+\end{document}
