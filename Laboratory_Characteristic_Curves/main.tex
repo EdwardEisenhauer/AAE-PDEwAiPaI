@@ -12,6 +12,15 @@
 
 \maketitle
 
+\section{Visualizing characteristic Families and Decay --- Method of characteristics}
+
+\subsection{Task A (Constant Advection)}
+
+For $u_t + 10 u_x = 0$, write a MATLAB script to plot the parallel
+characteristic lines $x(t) = x_0 + 10 t$ on the x --- t plane.
+Use \texttt{plot3} or \texttt{surf} to show the initial condition
+$u(x,0)=\frac{1}{1 + x^2}$ sliding along these paths without changing shape.
+
 \section{The Riemann Problem and Shock Trajectories --- Shock Waves}
 
 \subsection{Task A}
@@ -48,13 +57,13 @@ To calculate the shock speed $s$ we use Rankine-Hugoniot jump condition:
 % It comes from the conservation law.
 \begin{equation}
   s = \frac{f(u_R) - f(u_L)}{u_R - u_L}
-\begin{equation}
+\end{equation}
 
 In our case $u_L = 2$ and $u_R = 1$.
 
 \begin{equation}
   s = \frac{f(1) - f(2)}{1 - 2} = 2\frac{1}{3}
-\begin{equation}
+\end{equation}
 
 \subsection{Task B}
 

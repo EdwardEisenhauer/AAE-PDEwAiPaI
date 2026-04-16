@@ -4,7 +4,7 @@
 % u_t + 10 * u_x = 0,
 % write a MATLAB script to plot the parallel characteristic lines
 % x(t) = x_0 + 10 * t
-% on the x−t plane. Use plot3 or surf to show the initial condition
+% on the x-t plane. Use plot3 or surf to show the initial condition
 % u(x, 0) = 1/(1 + x^2)
 % sliding along these paths without changing shape.
 clear;

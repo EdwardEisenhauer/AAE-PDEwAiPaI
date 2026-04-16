@@ -4,8 +4,8 @@
 % u_t + 2 * t * u_x = -u,
 % analytically find the characteristic paths
 % x(t) = x_0 + t^2
-% and the solution u(t) = u_0 * e^−t. Create a 3D MATLAB plot showing
-% the initial Gaussian e^{−x^2} traveling along these curved paths
+% and the solution u(t) = u_0 * e^-t. Create a 3D MATLAB plot showing
+% the initial Gaussian e^{-x^2} traveling along these curved paths
 % while its amplitude decays exponentially over time.
 clear;
 clc;

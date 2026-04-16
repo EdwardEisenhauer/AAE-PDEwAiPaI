@@ -1,0 +1,41 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{matlab-prettifier}
+\usepackage{ifthen}
+
+\author{Sergiusz Warga}
+\title{Partial Differential Equations with Applications in Physics and Industry}
+
+\begin{document}
+
+\maketitle
+
+\section{The Problem: The Anatomy of a Traffic Jam}
+
+Suppose you are modeling traffic flow on a single-lane, infinitely long highway.
+Let $u(x, t)$ represent the normalized \textit{traffic density}, where $u = 0$
+is an empty road and $u = 1$ is complete traffic jam.
+
+Observations show that drivers adjust their velocity $v$ based on the density of
+cars around them according to the \textbf{Greenshields model}:
+\begin{equation}
+  v(u) = v_{max}(1 - u),
+\end{equation}
+where the maximum speed limit is normalized to $v_max = 1$.
+
+At time $t = 0$, the highway experiences a sudden event: cars approaching from
+the left ($x < 0$) are flowing at a light density of $x = 0.25$.
+However, starting exactly at ($x = 0$), an accident has cause a complete traffic
+jam ($u = 1.0$) that stretches indefinitely to the right ($x \geq 0$).
+
+\subsection{Part (a): The Conservation Law}
+
+Assuming no cars enter or leave the highway (\textit{conservations of mass}),
+derive the governing non-linear PDE for the traffic density ($u(x, t)$).
+Express it in the form $u_t + q(u)_x = 0$, and determine the mathematical
+expression for the characteristic wave speed $c(u)$.
+
+\end{document}
